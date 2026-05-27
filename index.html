@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>南山假日生教暨銷過報名系統</title>
+<title>南山假日銷過報名系統</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet"/>
 <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
@@ -13,11 +13,6 @@
     body {
         background-color: #f8f9fa;
         padding-top: 20px;
-    }
-    select.form-select {
-        cursor: pointer;
-        -webkit-appearance: none;
-        appearance: none;
     }
     .card {
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -83,7 +78,7 @@
     }
     .registration-item:last-child {
         border-bottom: none;
-   } 
+    
     
     /* 列印樣式 */
     @media print {
@@ -161,7 +156,7 @@
 </li>
 </ul>
 <div class="header text-center">
-<h1>南山假日生教暨銷過報名系統</h1>
+<h1>南山假日銷過報名系統</h1>
 </div>
 <div class="tab-main" id="tabStudent"><div class="card mb-4">
 <div class="card-header bg-primary text-white">
@@ -175,7 +170,7 @@
 <div class="input-group">
 <input class="form-control" id="studentId" placeholder="請輸入學號" required type="text"/>
 </div>
-<div class="mt-2" id="studentInfo" style="min-height: 70px;"></div>
+<div class="mt-2" id="studentInfo"></div>
 </div>
 </div>
 <div class="row mb-3">
@@ -1301,11 +1296,11 @@
 
     // 自動逾時登出：30 秒
     let logoutTimeout = setTimeout(logout, 30 * 1000);
-    ['touchstart', 'mousemove', 'keypress', 'scroll'].forEach(evt => {
+    ['click', 'mousemove', 'keypress', 'scroll'].forEach(evt => {
         document.addEventListener(evt, () => {
             clearTimeout(logoutTimeout);
             logoutTimeout = setTimeout(logout, 30 * 1000);
-        }); { passive: true });
+        });
     });
 
     // 登入後顯示登出按鈕
