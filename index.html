@@ -14,6 +14,11 @@
         background-color: #f8f9fa;
         padding-top: 20px;
     }
+    select.form-select {
+        cursor: pointer;
+        -webkit-appearance: none;
+        appearance: none;
+    }
     .card {
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         margin-bottom: 20px;
@@ -78,7 +83,7 @@
     }
     .registration-item:last-child {
         border-bottom: none;
-    
+   } 
     
     /* 列印樣式 */
     @media print {
@@ -170,7 +175,7 @@
 <div class="input-group">
 <input class="form-control" id="studentId" placeholder="請輸入學號" required type="text"/>
 </div>
-<div class="mt-2" id="studentInfo"></div>
+<div class="mt-2" id="studentInfo" style="min-height: 70px;"></div>
 </div>
 </div>
 <div class="row mb-3">
@@ -1296,11 +1301,11 @@
 
     // 自動逾時登出：30 秒
     let logoutTimeout = setTimeout(logout, 30 * 1000);
-    ['click', 'mousemove', 'keypress', 'scroll'].forEach(evt => {
+    ['touchstart', 'mousemove', 'keypress', 'scroll'].forEach(evt => {
         document.addEventListener(evt, () => {
             clearTimeout(logoutTimeout);
             logoutTimeout = setTimeout(logout, 30 * 1000);
-        });
+        }); { passive: true });
     });
 
     // 登入後顯示登出按鈕
